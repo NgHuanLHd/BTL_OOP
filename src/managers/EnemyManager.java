@@ -28,10 +28,13 @@ public class EnemyManager {
 	private int HPbarWidth = 20;
 	private BufferedImage slowEffect;
 	private int[][] roadDirArr;
+	
+	private BufferedImage[] aniOrc; // orc's animated sprites
 
 	public EnemyManager(Playing playing, PathPoint start, PathPoint end) {
 		this.playing = playing;
 		enemyImgs = new BufferedImage[4];
+		aniOrc = new BufferedImage[32];
 		this.start = start;
 		this.end = end;
 
@@ -67,6 +70,17 @@ public class EnemyManager {
 		BufferedImage atlas = LoadSave.getSpriteAtlas();
 		for (int i = 0; i < 4; i++)
 			enemyImgs[i] = atlas.getSubimage(i * 32, 32, 32, 32);
+		
+		
+		//load orc animated sprites
+		BufferedImage Orc = LoadSave.getSpriteAtlas("Slime1_Run_full");
+		int id = 0;
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 4; j++) {
+				aniOrc[id++] = Orc.getSubimage(i * 32, j * 32, 32, 32);
+			}
+		}
+			
 
 	}
 
@@ -268,7 +282,20 @@ public class EnemyManager {
 	}
 
 	private void drawEnemy(Enemy e, Graphics g) {
-		g.drawImage(enemyImgs[e.getEnemyType()], (int) e.getX(), (int) e.getY(), null);
+		if (e.getEnemyType() == ORC) {
+			drawAnimatedEnemy(e, g);
+		} else {
+			g.drawImage(enemyImgs[e.getEnemyType()], (int) e.getX(), (int) e.getY(), null);
+		}
+	}
+	
+
+	private void drawAnimatedEnemy(Enemy e, Graphics g) {
+		Orc orc = (Orc) e;
+		int frame = orc.getCurrentFrame();
+		g.drawImage(aniOrc[frame], (int) orc.getX(), (int) orc.getY(), null);
+		orc.updateAnimationFrame();
+		
 	}
 
 	public ArrayList<Enemy> getEnemies() {

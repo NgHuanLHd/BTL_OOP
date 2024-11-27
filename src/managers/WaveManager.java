@@ -21,7 +21,7 @@ public class WaveManager {
 	private int firstWaveCountdown = firstWaveDelay;
 	private boolean isFirstWave = true;
 	
-	private float preparationTime = 15.0f; // Thời gian chuẩn bị ban đầu 
+	private float preparationTime = 1f; // Thời gian chuẩn bị ban đầu 
 	private boolean isPreparationActive = true; // Trạng thái của tgian cbi
 
 

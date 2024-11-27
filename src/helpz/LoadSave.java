@@ -26,6 +26,17 @@ public class LoadSave {
 		}
 		return img; 
 	}
+	public static BufferedImage getSpriteAtlas(String file ) {
+		BufferedImage img = null;
+		InputStream is = LoadSave.class.getClassLoader().getResourceAsStream(file + ".png");
+
+		try {
+			img = ImageIO.read(is);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return img; 
+	}
 
 	public static void CreateFile() {
 		File txtFile = new File("res/testTextFile.txt");
