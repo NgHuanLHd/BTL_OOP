@@ -32,7 +32,7 @@ public class Menu extends GameScene implements SceneMethods {
 		int yOffset = 100;
 
 		bPlaying = new MyButton("Play", x, y, w, h);
-		bEdit = new MyButton("Edit", x, y + yOffset, w, h);
+		bEdit = new MyButton("Creative mode", x, y + yOffset, w, h);
 		bSettings = new MyButton("Settings", x, y + yOffset * 2, w, h);
 		bQuit = new MyButton("Quit", x, y + yOffset * 3, w, h);
 		bLevelSelection = new MyButton("Selection Level", x, y + yOffset * 4, w, h);
