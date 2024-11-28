@@ -80,6 +80,7 @@ public class EnemyManager {
 				aniOrc[id++] = Orc.getSubimage(i * 32, j * 32, 32, 32);
 			}
 		}
+		System.out.println("Number of slime sprites:" + aniOrc.length); // debugging line
 			
 
 	}
@@ -294,8 +295,7 @@ public class EnemyManager {
 		Orc orc = (Orc) e;
 		int frame = orc.getCurrentFrame();
 		g.drawImage(aniOrc[frame], (int) orc.getX(), (int) orc.getY(), null);
-		orc.updateAnimationFrame();
-		
+		orc.updateAnimationFrame();		
 	}
 
 	public ArrayList<Enemy> getEnemies() {

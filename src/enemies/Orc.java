@@ -16,7 +16,7 @@ public class Orc extends Enemy {
         animationTick++;
         if (animationTick >= FRAME_DELAY) {
             animationTick = 0;
-            currentFrame = (currentFrame + 1) % 6; // Cycle through 6 frames
+            currentFrame = (currentFrame + 1) %  32; // Cycle through 6 frames
         }
     }
 

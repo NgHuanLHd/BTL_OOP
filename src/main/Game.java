@@ -16,6 +16,7 @@ import scenes.LevelSelection;
 import scenes.Menu;
 import scenes.Playing;
 import scenes.Settings;
+import scenes.Tutorial;
 import scenes.WinGame;
 
 public class Game extends JFrame implements Runnable {
@@ -34,6 +35,7 @@ public class Game extends JFrame implements Runnable {
 	private Editing editing;
 	private GameOver gameOver;	
 	private WinGame winGame;
+	private Tutorial tutorial;
 	private LevelSelection levelSelection;
 	private Edit edit;   // ấn vào edit -> chuyển tới editing và Your Level
 	private TileManager tileManager;
@@ -52,7 +54,7 @@ public class Game extends JFrame implements Runnable {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocation(300, 0);
 		setResizable(false);
-		setTitle("Euphoria");
+		setTitle("Tower Defense PROMAX");
 		
 		add(gameScreen);
 		pack();
@@ -82,6 +84,7 @@ public class Game extends JFrame implements Runnable {
 		levelSelection = new LevelSelection(this);
 		edit = new Edit(this);
 		winGame = new WinGame(this);
+		tutorial = new Tutorial(this);
  
 	}
 	
@@ -114,6 +117,8 @@ public class Game extends JFrame implements Runnable {
 		    break;
 		case EDIT2:
 			break;
+		case TUTORIAL:
+			tutorial.update();
 		default:
 			break;
 		}
@@ -214,10 +219,13 @@ public class Game extends JFrame implements Runnable {
         return audioPlayer;
     }
 	
+	public Tutorial getTutorial() {
+		return tutorial;
+	}
 	public float getVolumeLevel() {
         return volumeLevel;
     }
-
+	
     public void setVolumeLevel(float volumeLevel) {
         this.volumeLevel = volumeLevel;
         audioPlayer.setVolume(volumeLevel); // Cập nhật âm lượng toàn bộ game

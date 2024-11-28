@@ -144,6 +144,19 @@ public class Constants {
 			}
 			return 0;
 		}
+		public static String GetName(int enemyType) {
+			switch (enemyType) {
+			case ORC:
+				return "ORC";
+			case BAT:
+				return "BAT";
+			case KNIGHT:
+				return "KNIGHT";
+			case WOLF:
+				return "WOLF";
+			}
+			return "";
+		}
 	}
 
 	public static class Tiles {

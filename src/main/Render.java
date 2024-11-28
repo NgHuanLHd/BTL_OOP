@@ -35,6 +35,8 @@ public class Render {
 		case WIN_GAME:
 			game.getWinGame().render(g);
 			break;
+		case TUTORIAL:
+			game.getTutorial().render(g);
 		default:
 			break;
 		}	
