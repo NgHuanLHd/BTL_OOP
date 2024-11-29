@@ -54,7 +54,7 @@ public class Game extends JFrame implements Runnable {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocation(300, 0);
 		setResizable(false);
-		setTitle("Tower Defense PROMAX");
+		setTitle("Genshin Impact");
 		
 		add(gameScreen);
 		pack();
